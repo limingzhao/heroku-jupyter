@@ -17,7 +17,8 @@ try:
         c.NotebookApp.password = ''
 
     ### PostresContentsManager ###
-    database_url = os.getenv('DATABASE_URL', None)
+    # database_url = os.getenv('DATABASE_URL', None)
+    database_url = None
     if database_url:
         # Tell IPython to use PostgresContentsManager for all storage.
         c.NotebookApp.contents_manager_class = pgcontents.PostgresContentsManager
