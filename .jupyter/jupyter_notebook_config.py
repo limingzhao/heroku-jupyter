@@ -13,12 +13,11 @@ try:
         passwd = os.environ['JUPYTER_NOTEBOOK_PASSWORD']
         c.NotebookApp.password = IPython.lib.passwd(passwd)
     else:
-        c.NotebookApp.token = ''
+        c.NotebookApp.token = 'fs-jupyter'
         c.NotebookApp.password = ''
 
     ### PostresContentsManager ###
-    # database_url = os.getenv('DATABASE_URL', None)
-    database_url = None
+    database_url = os.getenv('DATABASE_URL', None)
     if database_url:
         # Tell IPython to use PostgresContentsManager for all storage.
         c.NotebookApp.contents_manager_class = pgcontents.PostgresContentsManager
